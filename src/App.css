@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+font-family: 'Roboto', sans-serif;
+width: 100vw;
+
+min-height: 100vh;
+padding-bottom: 30px;
 }
 
 .App-logo {
@@ -36,3 +41,4 @@
     transform: rotate(360deg);
   }
 }
+
