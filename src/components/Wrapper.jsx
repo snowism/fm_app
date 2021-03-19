@@ -8,10 +8,15 @@ export default class Wrapper extends Component {
 
     this.state = {
       musiciansArray: [],
+      showmodal: false,
     };
   }
 
   componentDidMount() {
+    this.loadAllMusicians();
+  }
+
+  loadAllMusicians=(e)=> {
     Axios.get(`http://localhost:4000/api/musicians/`).then((res) => {
       console.table(res.data);
       this.setState({
@@ -20,20 +25,22 @@ export default class Wrapper extends Component {
     });
   }
 
+
   render() {
     return (
       <React.Fragment>
         {this.state.musiciansArray.map((item, index) => {
           return (
-           
+
             <SingleCard
               key={index}
               name={item.name}
               album={item.album}
-             id={item.id}
-             filepath = {item.filepath}
+              id={item.id}
+              filepath={item.filepath}
+              onSuccessfulDeletion={this.loadAllMusicians}
             />
-            
+
           );
         })}
       </React.Fragment>

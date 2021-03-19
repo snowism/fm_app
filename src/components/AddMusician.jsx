@@ -24,12 +24,15 @@ export default class AddWriter extends Component {
     Axios.post("http://localhost:4000/api/musicians", this.state).then((res) => {
       console.table(res);
 
-      if(res.statusText === "OK"){
-        this.setState({ showmodal:true });
+      if (res.statusText === "OK") {
+        this.setState({ showmodal: true });
       }
     });
     event.preventDefault();
   };
+
+
+
 
   handleFilepath = e => {
     this.setState({ filepath: e.target.value });
@@ -47,15 +50,15 @@ export default class AddWriter extends Component {
   };
 
   onClose = e => {
-    this.setState({ showmodal:false });
+    this.setState({ showmodal: false });
   }
-  
+
   render() {
     return (
       <div className="form-wrapper">
         <form onSubmit={this.handleSubmit}>
-            <h2>Add your favorite Musician</h2>
-        <div>
+          <h2>Add your favorite Musician</h2>
+          <div>
             <label>Image file path</label>
             <input
               type="text"
@@ -97,13 +100,21 @@ export default class AddWriter extends Component {
               onChange={this.handleDebut}
             />
           </div>
-         
+
           <input type="hidden" name="id" value={this.state.id} />
 
           <button type="submit">Submit</button>
+
         </form>
-        <Modal showmodal={this.state.showmodal} onClose={this.onClose}/>
+       
+
+       
+        <Modal showmodal={this.state.showmodal}
+          comment={"Success to add"}
+      onClick={this.onClose} message={"OK"}/>
+
       </div>
+      
     );
   }
 }

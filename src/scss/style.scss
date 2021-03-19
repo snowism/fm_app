@@ -144,3 +144,18 @@ h4 {
 .detail-img {
   width: 340px;
 }
+
+//modal
+
+.my-modal { 
+  width: 100vw;
+  height: 50vh;
+  top: 10%;
+  left: 0;
+  z-index: 1000;
+  text-align: center;
+  position: fixed;
+  background-color: rgba(0,0,0,0.8);
+  color: snow;
+  
+}
